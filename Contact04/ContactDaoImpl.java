@@ -13,7 +13,6 @@ public class ContactDaoImpl implements ContactDao {
 //ContactDaoImpl 객체를 여러개 생성하게 되면 각각의 객체들마다 연락처 배열을 가지게 됨(저장, 읽기가 다를 수 있으므로 singleton 패턴을 적용하는 것)
 
 	// singleton step 1
-
 	private static ContactDaoImpl instance = null;
 
 	// singleton step 2
@@ -77,18 +76,12 @@ public class ContactDaoImpl implements ContactDao {
 //		} else {
 //			return 0;
 //		}
-		contacts.add(c);
+		contacts.add(c); //항상 true를 return 함
 	}
 
 	@Override
-	public Contact[] read() {
-		Contact[] array = new Contact[contacts.size()];
-		//->얘를 만든 목적은 contacts 배열에 저장된 원소 개수의 크기를 갖는 새로운 배열을 생성하려고
-		
-		for (int i = 0; i < contacts.size(); i++) {
-			array[i] = contacts.get(i);
-		}
-		return array;
+	public List<Contact> read() { //상위 클래스의 메서드를 오버라이드 할 때 수식어는 달라져도 됨 대신 더 넓어지는 방향으로
+		return contacts;
 	}
 
 	@Override
@@ -114,7 +107,7 @@ public class ContactDaoImpl implements ContactDao {
 		
 		if (!isValidIndex(index))
 			return 0;
-		contacts.set(index, contact);
+		contacts.set(index, contact); // 리턴값으로 교체된 요소들을 반환함
 		return 1;
 	}
 

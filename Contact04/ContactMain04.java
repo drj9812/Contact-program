@@ -127,10 +127,9 @@ public class ContactMain04 {
 		System.out.println("\n----- 연락처 전체 목록 -----");
 		//String[] str =
 		//TODO 생각해보기
-		Contact[] contacts = dao.read();
 		//-> VIEW(UI)는 Controller의 메서드를 호출해서 출력에 필요한 데이터를 리턴 받음
 		
-		for (Contact c : contacts) {
+		for (Contact c : dao.read()) {
 			System.out.println(c);
 		}
 		System.out.println("----------------------------");

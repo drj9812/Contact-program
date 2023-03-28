@@ -1,5 +1,7 @@
 package edu.java.contact04;
 
+import java.util.List;
+
 import edu.java.contact.model.Contact;
 
 //MVC(Model-View-Controller) : 아키텍쳐에서 Controller 역할을 수행할 인터페이스(구현할 클래스가 있어야함)
@@ -20,7 +22,7 @@ public interface ContactDao {
 	 * 연락처 전체 목록 보기 기능. 저장된 연락처 개수 크기의 연락처 리스트를 리턴.
 	 * @return 연락처 리스트를 리턴해줄 수 있으면 Main은 화면에다가 그거를 print하면 됨<- 이걸 생각하면서 설계
 	 */
-	Contact[] read(); //List<Contact> read();
+	List<Contact> read(); //List<Contact> read();
 	
 	/**
 	 * 인덱스 검색. 전달받은 인덱스 위치에 있는 연락처 객체를 리턴.
